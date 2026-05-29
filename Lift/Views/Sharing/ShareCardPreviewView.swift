@@ -30,13 +30,13 @@ public struct ShareCardPreviewView: View {
     public var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 VStack(spacing: 16) {
                     // Title
                     Text("Customize Share Card")
                         .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                         .padding(.top, 10)
                     
                     // Card Preview
@@ -76,14 +76,14 @@ public struct ShareCardPreviewView: View {
                                             }) {
                                                 Text(style.rawValue)
                                                     .font(.system(size: 13, weight: .bold))
-                                                    .foregroundColor(config.style == style ? .black : .white)
+                                                    .foregroundColor(config.style == style ? Color(.systemBackground) : .primary)
                                                     .padding(.horizontal, 16)
                                                     .padding(.vertical, 8)
-                                                    .background(config.style == style ? Color.green : Color(white: 0.12))
+                                                    .background(config.style == style ? Color.green : Color(.tertiarySystemBackground))
                                                     .cornerRadius(12)
                                                     .overlay(
                                                         RoundedRectangle(cornerRadius: 12)
-                                                            .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                                                            .stroke(Color.primary.opacity(0.1), lineWidth: 1)
                                                     )
                                             }
                                         }
@@ -109,10 +109,10 @@ public struct ShareCardPreviewView: View {
                                             Text("Square (1:1)")
                                         }
                                         .font(.system(size: 13, weight: .bold))
-                                        .foregroundColor(config.isSquare ? .black : .white)
+                                        .foregroundColor(config.isSquare ? Color(.systemBackground) : .primary)
                                         .frame(maxWidth: .infinity)
                                         .padding(.vertical, 10)
-                                        .background(config.isSquare ? Color.green : Color(white: 0.12))
+                                        .background(config.isSquare ? Color.green : Color(.tertiarySystemBackground))
                                         .cornerRadius(12)
                                     }
                                     
@@ -125,10 +125,10 @@ public struct ShareCardPreviewView: View {
                                             Text("Story (9:16)")
                                         }
                                         .font(.system(size: 13, weight: .bold))
-                                        .foregroundColor(!config.isSquare ? .black : .white)
+                                        .foregroundColor(!config.isSquare ? Color(.systemBackground) : .primary)
                                         .frame(maxWidth: .infinity)
                                         .padding(.vertical, 10)
-                                        .background(!config.isSquare ? Color.green : Color(white: 0.12))
+                                        .background(!config.isSquare ? Color.green : Color(.tertiarySystemBackground))
                                         .cornerRadius(12)
                                     }
                                 }
@@ -136,23 +136,23 @@ public struct ShareCardPreviewView: View {
                             .padding(.horizontal)
                             
                             // Toggles
-                            VStack(spacing: 12) {
+                             VStack(spacing: 12) {
                                 Toggle(isOn: $config.showVolume) {
                                     Text("Show Weight Volume")
                                         .font(.system(size: 14, weight: .semibold))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.primary)
                                 }
                                 
                                 Toggle(isOn: $config.showPRs) {
                                     Text("Show PR Badges")
                                         .font(.system(size: 14, weight: .semibold))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.primary)
                                 }
                                 
                                 Toggle(isOn: $config.showWatermark) {
                                     Text("Show Lift Watermark")
                                         .font(.system(size: 14, weight: .semibold))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.primary)
                                 }
                             }
                             .padding(.horizontal)
@@ -168,7 +168,7 @@ public struct ShareCardPreviewView: View {
                             Text("Open Native Share Sheet")
                         }
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(.systemBackground))
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
                         .background(Color.green)

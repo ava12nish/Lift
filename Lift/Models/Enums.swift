@@ -89,3 +89,11 @@ public enum ShareCardStyle: String, Codable, CaseIterable, Identifiable {
     
     public var id: String { rawValue }
 }
+
+public enum AppThemeMode: String, Codable, CaseIterable, Identifiable {
+    case system = "System"
+    case light = "Light"
+    case dark = "Dark"
+    
+    public var id: String { rawValue }
+}

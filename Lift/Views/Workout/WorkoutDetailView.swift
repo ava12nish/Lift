@@ -19,7 +19,7 @@ public struct WorkoutDetailView: View {
     
     public var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Color(.systemBackground).ignoresSafeArea()
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
@@ -87,12 +87,12 @@ public struct WorkoutDetailView: View {
                 if isEditing {
                     TextField("Workout Name", text: $workout.name)
                         .font(.system(size: 24, weight: .black, design: .rounded))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                         .tint(.green)
                 } else {
                     Text(workout.name)
                         .font(.system(size: 24, weight: .black, design: .rounded))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 
                 Spacer()
@@ -107,7 +107,7 @@ public struct WorkoutDetailView: View {
                 .foregroundColor(.gray)
             
             Divider()
-                .background(Color.white.opacity(0.15))
+                .background(Color.primary.opacity(0.15))
                 .padding(.vertical, 4)
             
             // Core Stats Grid
@@ -118,7 +118,7 @@ public struct WorkoutDetailView: View {
                         .foregroundColor(.gray)
                     Text(formatDuration(workout.duration))
                         .font(.system(size: 16, weight: .black, design: .monospaced))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 
                 VStack(alignment: .leading, spacing: 4) {
@@ -127,7 +127,7 @@ public struct WorkoutDetailView: View {
                         .foregroundColor(.gray)
                     Text("\(Int(workout.totalVolume)) \(UserSettingsManager.shared.weightUnit.rawValue)")
                         .font(.system(size: 16, weight: .black, design: .monospaced))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 
                 VStack(alignment: .leading, spacing: 4) {
@@ -136,11 +136,11 @@ public struct WorkoutDetailView: View {
                         .foregroundColor(.gray)
                     Text("\(workout.totalSets) Sets")
                         .font(.system(size: 16, weight: .black))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
             }
             .padding(16)
-            .background(Color(white: 0.08))
+            .background(Color(.secondarySystemBackground))
             .cornerRadius(16)
         }
     }
@@ -152,8 +152,8 @@ public struct WorkoutDetailView: View {
                 TextField("Edit workout notes...", text: $workout.notes)
                     .font(.system(size: 13))
                     .padding()
-                    .foregroundColor(.white)
-                    .background(Color(white: 0.12))
+                    .foregroundColor(.primary)
+                    .background(Color(.tertiarySystemBackground))
                     .cornerRadius(12)
             } else if !workout.notes.isEmpty {
                 VStack(alignment: .leading, spacing: 6) {
@@ -164,11 +164,11 @@ public struct WorkoutDetailView: View {
                     
                     Text(workout.notes)
                         .font(.system(size: 14))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color(white: 0.08))
+                .background(Color(.secondarySystemBackground))
                 .cornerRadius(12)
             }
         }
@@ -189,14 +189,14 @@ public struct WorkoutDetailView: View {
                     HStack {
                         Text(ex.exerciseName)
                             .font(.system(size: 16, weight: .bold))
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                         Spacer()
                         Text(ex.muscleGroup.rawValue)
                             .font(.system(size: 10, weight: .bold))
                             .foregroundColor(.gray)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
-                            .background(Color(white: 0.12))
+                            .background(Color(.tertiarySystemBackground))
                             .cornerRadius(6)
                     }
                     
@@ -230,7 +230,7 @@ public struct WorkoutDetailView: View {
                             
                             Text("\(Int(set.weight)) \(UserSettingsManager.shared.weightUnit.rawValue) x \(set.reps)")
                                 .font(.system(size: 13, weight: .semibold, design: .monospaced))
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                         }
                         .swipeActions {
                             if isEditing {
@@ -244,7 +244,7 @@ public struct WorkoutDetailView: View {
                     }
                 }
                 .padding(16)
-                .background(Color(white: 0.08))
+                .background(Color(.secondarySystemBackground))
                 .cornerRadius(16)
             }
         }
@@ -259,7 +259,7 @@ public struct WorkoutDetailView: View {
                     Text("Perform Workout Again")
                 }
                 .font(.system(size: 15, weight: .bold))
-                .foregroundColor(.black)
+                .foregroundColor(Color(.systemBackground))
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14)
                 .background(Color.green)

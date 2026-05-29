@@ -13,7 +13,7 @@ public struct CalendarView: View {
     public var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 ScrollView {
                     VStack(spacing: 20) {
@@ -39,7 +39,7 @@ public struct CalendarView: View {
                     Text("Workout Calendar")
                         .font(.system(size: 18, weight: .black, design: .rounded))
                         .tracking(1)
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
             }
         }
@@ -55,7 +55,7 @@ public struct CalendarView: View {
                 Image(systemName: "chevron.left")
                     .foregroundColor(.green)
                     .padding(8)
-                    .background(Color(white: 0.12))
+                    .background(Color(.secondarySystemBackground))
                     .clipShape(Circle())
             }
             
@@ -63,7 +63,7 @@ public struct CalendarView: View {
             
             Text(monthYearString(from: currentMonthDate))
                 .font(.system(size: 20, weight: .black, design: .rounded))
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
             
             Spacer()
             
@@ -74,7 +74,7 @@ public struct CalendarView: View {
                 Image(systemName: "chevron.right")
                     .foregroundColor(.green)
                     .padding(8)
-                    .background(Color(white: 0.12))
+                    .background(Color(.secondarySystemBackground))
                     .clipShape(Circle())
             }
         }
@@ -113,7 +113,7 @@ public struct CalendarView: View {
                         VStack(spacing: 4) {
                             Text("\(Calendar.current.component(.day, from: date))")
                                 .font(.system(size: 14, weight: isSelected ? .bold : .semibold, design: .rounded))
-                                .foregroundColor(isSelected ? .black : (isToday ? .green : .white))
+                                .foregroundColor(isSelected ? Color(.systemBackground) : (isToday ? .green : .primary))
                                 .frame(width: 32, height: 32)
                                 .background(isSelected ? Color.green : (isToday ? Color.green.opacity(0.15) : Color.clear))
                                 .clipShape(Circle())
@@ -137,7 +137,7 @@ public struct CalendarView: View {
             }
         }
         .padding(12)
-        .background(Color(white: 0.08))
+        .background(Color(.secondarySystemBackground))
         .cornerRadius(20)
     }
     
@@ -158,14 +158,14 @@ public struct CalendarView: View {
                         .foregroundColor(.gray)
                     Text("Rest Day")
                         .font(.system(size: 15, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                     Text("No workouts logged on this day.")
                         .font(.system(size: 11))
                         .foregroundColor(.gray)
                 }
                 .padding(.vertical, 30)
                 .frame(maxWidth: .infinity)
-                .background(Color(white: 0.05))
+                .background(Color(.secondarySystemBackground))
                 .cornerRadius(16)
             } else {
                 ForEach(dayWorkouts) { workout in
@@ -180,7 +180,7 @@ public struct CalendarView: View {
                                     
                                     Text(workout.name)
                                         .font(.system(size: 18, weight: .black, design: .rounded))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.primary)
                                 }
                                 
                                 Spacer()
@@ -206,16 +206,16 @@ public struct CalendarView: View {
                             
                             // Key exercises completed
                             Text(workout.exercises.map { $0.exerciseName }.joined(separator: ", "))
-                                .font(.system(size: 12))
+                               .font(.system(size: 12))
                                 .foregroundColor(.gray)
                                 .lineLimit(1)
                         }
                         .padding(16)
-                        .background(Color(white: 0.08))
+                        .background(Color(.secondarySystemBackground))
                         .cornerRadius(16)
                         .overlay(
                             RoundedRectangle(cornerRadius: 16)
-                                .stroke(Color.white.opacity(0.05), lineWidth: 1)
+                                .stroke(Color.primary.opacity(0.05), lineWidth: 1)
                         )
                     }
                 }

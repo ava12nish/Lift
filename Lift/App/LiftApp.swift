@@ -32,11 +32,29 @@ struct LiftApp: App {
         }
     }
     
+    @State private var settings = UserSettingsManager.shared
+    @State private var showSplash = true
+    
     public var body: some Scene {
         WindowGroup {
-            MainTabView()
-                .preferredColorScheme(.dark)
-                .modelContainer(container)
+            ZStack {
+                if showSplash {
+                    SplashView()
+                        .transition(.opacity)
+                } else {
+                    MainTabView()
+                        .transition(.opacity)
+                }
+            }
+            .preferredColorScheme(settings.colorScheme)
+            .modelContainer(container)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                    withAnimation(.easeInOut(duration: 0.4)) {
+                        showSplash = false
+                    }
+                }
+            }
         }
     }
 }

@@ -16,14 +16,14 @@ public struct StartWorkoutView: View {
     public var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 24) {
                         // Title
                         Text("Start Workout")
                             .font(.system(size: 28, weight: .black, design: .rounded))
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .padding(.top, 16)
                         
                         // Empty Workout Trigger
@@ -67,7 +67,7 @@ public struct StartWorkoutView: View {
                     
                     Text("Start Empty Workout")
                         .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                     
                     Text("Design your workout on the fly.")
                         .font(.system(size: 12))
@@ -81,7 +81,7 @@ public struct StartWorkoutView: View {
                     .foregroundColor(.green)
             }
             .padding(18)
-            .background(Color(white: 0.08))
+            .background(Color(.secondarySystemBackground))
             .cornerRadius(16)
         }
     }
@@ -122,7 +122,7 @@ public struct StartWorkoutView: View {
                 .foregroundColor(.gray)
             Text("No Templates Found")
                 .font(.system(size: 16, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
             Text("Create a workout template to quickly reuse your routine next time.")
                 .font(.system(size: 12))
                 .foregroundColor(.gray)
@@ -130,7 +130,7 @@ public struct StartWorkoutView: View {
         }
         .padding(.vertical, 32)
         .frame(maxWidth: .infinity)
-        .background(Color(white: 0.05))
+        .background(Color(.secondarySystemBackground))
         .cornerRadius(16)
     }
     
@@ -148,7 +148,7 @@ public struct StartWorkoutView: View {
                                 .tracking(1)
                             Text(template.name)
                                 .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                         }
                         
                         Spacer()
@@ -171,7 +171,7 @@ public struct StartWorkoutView: View {
                                 .font(.system(size: 16))
                                 .foregroundColor(.gray)
                                 .padding(8)
-                                .background(Color.white.opacity(0.05))
+                                .background(Color.primary.opacity(0.05))
                                 .clipShape(Circle())
                         }
                     }
@@ -200,7 +200,7 @@ public struct StartWorkoutView: View {
                     }
                     
                     Divider()
-                        .background(Color.white.opacity(0.1))
+                        .background(Color.primary.opacity(0.1))
                         .padding(.vertical, 4)
                     
                     // Start Button
@@ -209,7 +209,7 @@ public struct StartWorkoutView: View {
                     }) {
                         Text("Start Workout")
                             .font(.system(size: 14, weight: .bold))
-                            .foregroundColor(.black)
+                            .foregroundColor(Color(.systemBackground))
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 10)
                             .background(Color.green)
@@ -217,11 +217,11 @@ public struct StartWorkoutView: View {
                     }
                 }
                 .padding(16)
-                .background(Color(white: 0.08))
+                .background(Color(.secondarySystemBackground))
                 .cornerRadius(16)
                 .overlay(
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color.white.opacity(0.05), lineWidth: 1)
+                        .stroke(Color.primary.opacity(0.05), lineWidth: 1)
                 )
             }
         }

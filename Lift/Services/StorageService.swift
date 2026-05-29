@@ -76,6 +76,24 @@ public class UserSettingsManager {
             UserDefaults.standard.set(newValue.rawValue, forKey: "defaultShareCardStyle")
         }
     }
+    
+    public var appThemeMode: AppThemeMode {
+        get {
+            let val = UserDefaults.standard.string(forKey: "appThemeMode") ?? "system"
+            return AppThemeMode(rawValue: val) ?? .system
+        }
+        set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: "appThemeMode")
+        }
+    }
+    
+    public var colorScheme: ColorScheme? {
+        switch appThemeMode {
+        case .system: return nil
+        case .light: return .light
+        case .dark: return .dark
+        }
+    }
 }
 
 public class StorageService {

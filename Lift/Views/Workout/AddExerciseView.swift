@@ -26,7 +26,7 @@ public struct AddExerciseView: View {
     public var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 VStack(spacing: 16) {
                     // Search Bar
@@ -34,7 +34,7 @@ public struct AddExerciseView: View {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
                         TextField("Search exercises...", text: $searchText)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .tint(.green)
                         
                         if !searchText.isEmpty {
@@ -45,7 +45,7 @@ public struct AddExerciseView: View {
                         }
                     }
                     .padding(10)
-                    .background(Color(white: 0.12))
+                    .background(Color(.secondarySystemBackground))
                     .cornerRadius(12)
                     .padding(.horizontal)
                     
@@ -58,10 +58,10 @@ public struct AddExerciseView: View {
                             }) {
                                 Text("All")
                                     .font(.system(size: 13, weight: .bold))
-                                    .foregroundColor(selectedMuscleGroup == nil ? .black : .white)
+                                    .foregroundColor(selectedMuscleGroup == nil ? Color(.systemBackground) : .primary)
                                     .padding(.horizontal, 14)
                                     .padding(.vertical, 8)
-                                    .background(selectedMuscleGroup == nil ? Color.green : Color(white: 0.12))
+                                    .background(selectedMuscleGroup == nil ? Color.green : Color(.tertiarySystemBackground))
                                     .cornerRadius(10)
                             }
                             
@@ -72,10 +72,10 @@ public struct AddExerciseView: View {
                                 }) {
                                     Text(group.rawValue)
                                         .font(.system(size: 13, weight: .bold))
-                                        .foregroundColor(selectedMuscleGroup == group ? .black : .white)
+                                        .foregroundColor(selectedMuscleGroup == group ? Color(.systemBackground) : .primary)
                                         .padding(.horizontal, 14)
                                         .padding(.vertical, 8)
-                                        .background(selectedMuscleGroup == group ? Color.green : Color(white: 0.12))
+                                        .background(selectedMuscleGroup == group ? Color.green : Color(.tertiarySystemBackground))
                                         .cornerRadius(10)
                                 }
                             }
@@ -100,7 +100,7 @@ public struct AddExerciseView: View {
                                         VStack(alignment: .leading, spacing: 4) {
                                             Text(exercise.name)
                                                 .font(.system(size: 16, weight: .semibold))
-                                                .foregroundColor(.white)
+                                                .foregroundColor(.primary)
                                             
                                             Text("\(exercise.muscleGroup.rawValue) • \(exercise.equipment.rawValue)")
                                                 .font(.system(size: 12))
@@ -119,7 +119,7 @@ public struct AddExerciseView: View {
                                         }
                                     }
                                 }
-                                .listRowBackground(Color(white: 0.08))
+                                .listRowBackground(Color(.secondarySystemBackground))
                             }
                         }
                     }
@@ -135,7 +135,7 @@ public struct AddExerciseView: View {
                             Text("Create Custom Exercise")
                         }
                         .font(.system(size: 15, weight: .bold))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(.systemBackground))
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
                         .background(Color.green)
@@ -173,41 +173,41 @@ public struct AddExerciseView: View {
     private var createCustomSheet: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 Form {
                     Section("Details") {
                         TextField("Exercise Name (e.g. Hammer Strength Incline)", text: $customName)
-                            .foregroundColor(.white)
-                            .listRowBackground(Color(white: 0.1))
+                            .foregroundColor(.primary)
+                            .listRowBackground(Color(.secondarySystemBackground))
                         
                         Picker("Muscle Group", selection: $customMuscle) {
                             ForEach(MuscleGroup.allCases) { m in
                                 Text(m.rawValue).tag(m)
                             }
                         }
-                        .foregroundColor(.white)
-                        .listRowBackground(Color(white: 0.1))
+                        .foregroundColor(.primary)
+                        .listRowBackground(Color(.secondarySystemBackground))
                         
                         Picker("Equipment", selection: $customEquipment) {
                             ForEach(EquipmentType.allCases) { eq in
                                 Text(eq.rawValue).tag(eq)
                             }
                         }
-                        .foregroundColor(.white)
-                        .listRowBackground(Color(white: 0.1))
+                        .foregroundColor(.primary)
+                        .listRowBackground(Color(.secondarySystemBackground))
                         
                         Picker("Tracking Type", selection: $customTracking) {
                             ForEach(TrackingType.allCases) { track in
                                 Text(track.rawValue).tag(track)
                             }
                         }
-                        .foregroundColor(.white)
-                        .listRowBackground(Color(white: 0.1))
+                        .foregroundColor(.primary)
+                        .listRowBackground(Color(.secondarySystemBackground))
                     }
                 }
                 .scrollContentBackground(.hidden)
-                .background(Color.black)
+                .background(Color(.systemBackground))
             }
             .navigationTitle("Custom Exercise")
             .navigationBarTitleDisplayMode(.inline)

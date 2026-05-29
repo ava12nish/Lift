@@ -25,6 +25,7 @@
 		54727349616569EA3D037E28 /* ExerciseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C62037759CD3213E8FD5C /* ExerciseModels.swift */; };
 		5B396F20789F708BA21A3459 /* WorkoutSuggestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91431E2EA028005970D6E9C /* WorkoutSuggestionService.swift */; };
 		7A3879A0E5184B9023E3D25D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DCDDE3A279ECD020D5FC9C /* ProgressView.swift */; };
+		93897E2847551A1D16A17B6A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93294CC4EE622C2E7EF0DC20 /* SplashView.swift */; };
 		955FD9EC117745A03EAA96B2 /* WorkoutModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB1DACD54CB5D58B00D13FB /* WorkoutModels.swift */; };
 		AAE43083886A9797776995C7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9806DC084B04246058CECD /* Enums.swift */; };
 		B2A2AF3826C08338989D41A5 /* PRCelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D517316C290E35EAED0965 /* PRCelebrationView.swift */; };
@@ -43,7 +44,7 @@
 		152DC327942169255D3B09A4 /* PRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRService.swift; sourceTree = "<group>"; };
 		15A8DECC1D9010AF5F621BD9 /* ActiveWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveWorkoutView.swift; sourceTree = "<group>"; };
 		1DDD20756389AE4AD39C5FDF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		22AD59C08B881C82D9B07B88 /* Lift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22AD59C08B881C82D9B07B88 /* Lift.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Lift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23959EFA52D230688F7B8504 /* ShareCardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCardViews.swift; sourceTree = "<group>"; };
 		2CD52E59D74DD297B79AD262 /* ImageRendererUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRendererUtility.swift; sourceTree = "<group>"; };
 		2E300314E07824EBA1AB1AF7 /* HapticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsService.swift; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		48FAC9FFD22E6FFECC361E7F /* WorkoutSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionManager.swift; sourceTree = "<group>"; };
 		5CF63C20551A1B2CE489FA79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82A81BB8397F6FC23EA0F067 /* RestTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerView.swift; sourceTree = "<group>"; };
+		93294CC4EE622C2E7EF0DC20 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		94338AA7EE824F7B8BE2D72F /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		96B91DBA493C8FC8506CA917 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 		AF9806DC084B04246058CECD /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				FA23D0667D54D8DB30F6AFD1 /* MainTabView.swift */,
+				93294CC4EE622C2E7EF0DC20 /* SplashView.swift */,
 				6C3D33826812FFABD9612E1A /* Calendar */,
 				0FA7FCB347748CBFAE2958FA /* Components */,
 				603D79F665F38FF77C9D8480 /* Home */,
@@ -269,6 +272,11 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					8CF39992B376D5973D0DAE76 = {
+						DevelopmentTeam = "";
+					};
+				};
 			};
 			buildConfigurationList = A16F62BB9110C0483E63F3A2 /* Build configuration list for PBXProject "Lift" */;
 			developmentRegion = en;
@@ -326,6 +334,7 @@
 				1F634D5AD213AA9A8B6C3268 /* ShareCardPreviewView.swift in Sources */,
 				2934F505F13E5E6F7F06B54D /* ShareCardViews.swift in Sources */,
 				01B5DAB8DC6B420BC766CF7C /* SoundService.swift in Sources */,
+				93897E2847551A1D16A17B6A /* SplashView.swift in Sources */,
 				F52EAD74BEF6447ABC64EB3C /* StartWorkoutView.swift in Sources */,
 				3F66DA415F17FA6E466CA4D0 /* StorageService.swift in Sources */,
 				4E90E9788C86E753B291103B /* TemplateModels.swift in Sources */,
@@ -408,7 +417,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lift/Resources/Lift.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KW3G9DYD62;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Lift/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -486,7 +495,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lift/Resources/Lift.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KW3G9DYD62;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Lift/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

@@ -26,7 +26,7 @@ public struct ProgressView: View {
     public var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 VStack(spacing: 16) {
                     // Segmented Control
@@ -62,7 +62,7 @@ public struct ProgressView: View {
                 ToolbarItem(placement: .principal) {
                     Text("Analytics & Logs")
                         .font(.system(size: 18, weight: .black, design: .rounded))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
             }
             .sheet(isPresented: $showingAddWeight) {
@@ -219,11 +219,11 @@ public struct ProgressView: View {
                         .foregroundColor(.gray)
                     Text("No weight logs yet")
                         .font(.system(size: 15, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 .padding(.vertical, 40)
                 .frame(maxWidth: .infinity)
-                .background(Color(white: 0.08))
+                .background(Color(.secondarySystemBackground))
                 .cornerRadius(16)
             } else {
                 ForEach(bodyweightEntries) { entry in
@@ -231,7 +231,7 @@ public struct ProgressView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(entry.date.formatted(date: .long, time: .omitted))
                                 .font(.system(size: 15, weight: .bold))
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                             Text(entry.date.formatted(date: .omitted, time: .shortened))
                                 .font(.system(size: 12))
                                 .foregroundColor(.gray)
@@ -244,7 +244,7 @@ public struct ProgressView: View {
                             .foregroundColor(.green)
                     }
                     .padding()
-                    .background(Color(white: 0.08))
+                    .background(Color(.secondarySystemBackground))
                     .cornerRadius(16)
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
@@ -273,14 +273,14 @@ public struct ProgressView: View {
                         .foregroundColor(.gray)
                     Text("No PRs locked in yet")
                         .font(.system(size: 15, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                     Text("Log workouts. Lift heavier. Hit milestones.")
                         .font(.system(size: 11))
                         .foregroundColor(.gray)
                 }
                 .padding(.vertical, 40)
                 .frame(maxWidth: .infinity)
-                .background(Color(white: 0.08))
+                .background(Color(.secondarySystemBackground))
                 .cornerRadius(16)
             } else {
                 ForEach(prs) { pr in
@@ -295,7 +295,7 @@ public struct ProgressView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(pr.exerciseName)
                                 .font(.system(size: 16, weight: .bold))
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                             
                             HStack {
                                 if pr.typeString == "weight" {
@@ -309,6 +309,7 @@ public struct ProgressView: View {
                                 }
                                 
                                 Text("•")
+                                    .foregroundColor(.gray)
                                 Text(pr.date.formatted(.dateTime.day().month().year()))
                             }
                             .font(.system(size: 12))
@@ -326,16 +327,16 @@ public struct ProgressView: View {
                             Image(systemName: "square.and.arrow.up")
                                 .foregroundColor(.green)
                                 .padding(8)
-                                .background(Color.white.opacity(0.05))
+                                .background(Color.primary.opacity(0.05))
                                 .clipShape(Circle())
                         }
                     }
                     .padding()
-                    .background(Color(white: 0.08))
+                    .background(Color(.secondarySystemBackground))
                     .cornerRadius(16)
                     .overlay(
                         RoundedRectangle(cornerRadius: 16)
-                            .stroke(Color.white.opacity(0.03), lineWidth: 1)
+                            .stroke(Color.primary.opacity(0.03), lineWidth: 1)
                     )
                 }
             }
@@ -346,23 +347,23 @@ public struct ProgressView: View {
     private var addWeightSheet: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 VStack(spacing: 24) {
                     Text("Add Weight Measurement")
                         .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                         .padding(.top, 20)
                     
                     HStack(spacing: 8) {
                         TextField("0.0", text: $bodyweightInput)
                             .keyboardType(.decimalPad)
                             .font(.system(size: 32, weight: .bold))
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                             .frame(width: 150)
                             .padding()
-                            .background(Color(white: 0.12))
+                            .background(Color(.tertiarySystemBackground))
                             .cornerRadius(16)
                         
                         Text(UserSettingsManager.shared.bodyweightUnit.rawValue)
@@ -373,7 +374,7 @@ public struct ProgressView: View {
                     Button(action: saveWeight) {
                         Text("Save Log")
                             .font(.system(size: 16, weight: .bold))
-                            .foregroundColor(.black)
+                            .foregroundColor(Color(.systemBackground))
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 14)
                             .background(Color.green)
@@ -465,12 +466,12 @@ public struct ProgressView: View {
         VStack(alignment: .leading, spacing: 14) {
             Text(title)
                 .font(.system(size: 14, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
             
             content()
         }
         .padding(16)
-        .background(Color(white: 0.08))
+        .background(Color(.secondarySystemBackground))
         .cornerRadius(20)
     }
     

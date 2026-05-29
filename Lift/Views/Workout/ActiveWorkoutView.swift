@@ -16,7 +16,7 @@ public struct ActiveWorkoutView: View {
     public var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 if let workout = sessionManager.activeWorkout {
                     VStack(spacing: 0) {
@@ -30,8 +30,8 @@ public struct ActiveWorkoutView: View {
                                 TextField("Tap to add workout notes...", text: Bindable(workout).notes)
                                     .font(.system(size: 13))
                                     .padding()
-                                    .foregroundColor(.white)
-                                    .background(Color(white: 0.08))
+                                    .foregroundColor(.primary)
+                                    .background(Color(.secondarySystemBackground))
                                     .cornerRadius(12)
                                     .padding(.top, 10)
                                 
@@ -107,7 +107,7 @@ public struct ActiveWorkoutView: View {
                 // Workout Title
                 TextField("Workout Name", text: Bindable(workout).name)
                     .font(.system(size: 22, weight: .black, design: .rounded))
-                    .foregroundColor(.white)
+                    .foregroundColor(.primary)
                     .tint(.green)
                 
                 Spacer()
@@ -132,10 +132,10 @@ public struct ActiveWorkoutView: View {
                         }) {
                             Text(type.rawValue)
                                 .font(.system(size: 12, weight: .bold))
-                                .foregroundColor(workout.type == type ? .black : .white)
+                                .foregroundColor(workout.type == type ? Color(.systemBackground) : .primary)
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 6)
-                                .background(workout.type == type ? Color.green : Color(white: 0.12))
+                                .background(workout.type == type ? Color.green : Color(.tertiarySystemBackground))
                                 .cornerRadius(8)
                         }
                     }
@@ -144,7 +144,7 @@ public struct ActiveWorkoutView: View {
             }
             
             Divider()
-                .background(Color.white.opacity(0.12))
+                .background(Color.primary.opacity(0.12))
         }
         .padding(.top, 10)
     }
@@ -157,7 +157,7 @@ public struct ActiveWorkoutView: View {
                 .foregroundColor(.gray)
             Text("Empty Workout Session")
                 .font(.system(size: 16, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
             Text("Tap the button below to add exercises to this workout.")
                 .font(.system(size: 12))
                 .foregroundColor(.gray)
@@ -179,7 +179,7 @@ public struct ActiveWorkoutView: View {
                     VStack(alignment: .leading, spacing: 2) {
                         Text(exercise.exerciseName)
                             .font(.system(size: 18, weight: .black, design: .rounded))
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                         
                         Text(exercise.muscleGroup.rawValue)
                             .font(.system(size: 11, weight: .bold))
@@ -274,9 +274,9 @@ public struct ActiveWorkoutView: View {
                                 .keyboardType(.decimalPad)
                                 .multilineTextAlignment(.center)
                                 .padding(6)
-                                .background(Color(white: 0.15))
+                                .background(Color(.tertiarySystemBackground))
                                 .cornerRadius(8)
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                                 .frame(width: 60, alignment: .center)
                             
                             // Reps Input
@@ -284,9 +284,9 @@ public struct ActiveWorkoutView: View {
                                 .keyboardType(.numberPad)
                                 .multilineTextAlignment(.center)
                                 .padding(6)
-                                .background(Color(white: 0.15))
+                                .background(Color(.tertiarySystemBackground))
                                 .cornerRadius(8)
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                                 .frame(width: 50, alignment: .center)
                             
                             Spacer()
@@ -348,11 +348,11 @@ public struct ActiveWorkoutView: View {
                 .buttonStyle(.plain)
             }
             .padding(16)
-            .background(Color(white: 0.08))
+            .background(Color(.secondarySystemBackground))
             .cornerRadius(16)
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.white.opacity(0.05), lineWidth: 1)
+                    .stroke(Color.primary.opacity(0.05), lineWidth: 1)
             )
         }
     }
@@ -369,21 +369,21 @@ public struct ActiveWorkoutView: View {
                     Text("Add Exercise")
                 }
                 .font(.system(size: 15, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14)
-                .background(Color(white: 0.12))
+                .background(Color(.tertiarySystemBackground))
                 .cornerRadius(14)
                 .overlay(
                     RoundedRectangle(cornerRadius: 14)
-                        .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                        .stroke(Color.primary.opacity(0.1), lineWidth: 1)
                 )
             }
             
             Button(action: finishWorkout) {
                 Text("Finish Workout")
                     .font(.system(size: 15, weight: .bold))
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(.systemBackground))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
                     .background(Color.green)
@@ -392,7 +392,7 @@ public struct ActiveWorkoutView: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 12)
-        .background(Color.black.opacity(0.95))
+        .background(Color(.systemBackground).opacity(0.95))
     }
     
     // MARK: - Actions & Helpers

@@ -51,22 +51,22 @@ public struct CreateTemplateView: View {
     public var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 VStack(spacing: 0) {
                     Form {
                         Section("Template Info") {
                             TextField("Template Name (e.g. Chest & Shoulders)", text: $templateName)
-                                .foregroundColor(.white)
-                                .listRowBackground(Color(white: 0.1))
+                                .foregroundColor(.primary)
+                                .listRowBackground(Color(.secondarySystemBackground))
                             
                             Picker("Workout Category", selection: $workoutType) {
                                 ForEach(WorkoutType.allCases) { type in
                                     Text(type.rawValue).tag(type)
                                 }
                             }
-                            .foregroundColor(.white)
-                            .listRowBackground(Color(white: 0.1))
+                            .foregroundColor(.primary)
+                            .listRowBackground(Color(.secondarySystemBackground))
                         }
                         
                         Section("Exercises") {
@@ -74,14 +74,14 @@ public struct CreateTemplateView: View {
                                 Text("Add exercises to this template below")
                                     .font(.system(size: 13))
                                     .foregroundColor(.gray)
-                                    .listRowBackground(Color(white: 0.1))
+                                    .listRowBackground(Color(.secondarySystemBackground))
                             } else {
                                 ForEach($exercisesList) { $ex in
                                     VStack(alignment: .leading, spacing: 12) {
                                         HStack {
                                             Text(ex.name)
                                                 .font(.system(size: 16, weight: .bold))
-                                                .foregroundColor(.white)
+                                                .foregroundColor(.primary)
                                             
                                             Spacer()
                                             
@@ -111,7 +111,7 @@ public struct CreateTemplateView: View {
                                                 // Set #
                                                 Text("\(index + 1)")
                                                     .font(.system(size: 13, weight: .bold))
-                                                    .foregroundColor(.white)
+                                                    .foregroundColor(.primary)
                                                     .frame(width: 35, alignment: .leading)
                                                 
                                                 // Set Type
@@ -136,9 +136,9 @@ public struct CreateTemplateView: View {
                                                         .keyboardType(.decimalPad)
                                                         .multilineTextAlignment(.center)
                                                         .padding(6)
-                                                        .background(Color(white: 0.18))
+                                                        .background(Color(.tertiarySystemBackground))
                                                         .cornerRadius(8)
-                                                        .foregroundColor(.white)
+                                                        .foregroundColor(.primary)
                                                     
                                                     Text(UserSettingsManager.shared.weightUnit.rawValue)
                                                         .font(.system(size: 10))
@@ -151,9 +151,9 @@ public struct CreateTemplateView: View {
                                                     .keyboardType(.numberPad)
                                                     .multilineTextAlignment(.center)
                                                     .padding(6)
-                                                    .background(Color(white: 0.18))
+                                                    .background(Color(.tertiarySystemBackground))
                                                     .cornerRadius(8)
-                                                    .foregroundColor(.white)
+                                                    .foregroundColor(.primary)
                                                     .frame(width: 60, alignment: .center)
                                                 
                                                 Spacer()
@@ -185,14 +185,14 @@ public struct CreateTemplateView: View {
                                         .buttonStyle(.plain)
                                     }
                                     .padding(.vertical, 8)
-                                    .listRowBackground(Color(white: 0.1))
+                                    .listRowBackground(Color(.secondarySystemBackground))
                                 }
                                 .onMove(perform: moveExercise)
                             }
                         }
                     }
                     .scrollContentBackground(.hidden)
-                    .background(Color.black)
+                    .background(Color(.systemBackground))
                     
                     // Bottom Add Exercise Trigger
                     Button(action: {
@@ -203,7 +203,7 @@ public struct CreateTemplateView: View {
                             Text("Add Exercise")
                         }
                         .font(.system(size: 15, weight: .bold))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(.systemBackground))
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
                         .background(Color.green)

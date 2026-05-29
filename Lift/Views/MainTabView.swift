@@ -70,7 +70,7 @@ public struct MainTabView: View {
                                     .foregroundColor(.gray)
                                 Text(activeWorkout.name)
                                     .font(.system(size: 14, weight: .bold))
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.primary)
                             }
                             
                             Spacer()
@@ -85,13 +85,13 @@ public struct MainTabView: View {
                         }
                         .padding(.horizontal, 16)
                         .padding(.vertical, 12)
-                        .background(Color(white: 0.12))
+                        .background(Color(.secondarySystemBackground))
                         .cornerRadius(16)
                         .overlay(
                             RoundedRectangle(cornerRadius: 16)
-                                .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                                .stroke(Color.primary.opacity(0.1), lineWidth: 1)
                         )
-                        .shadow(color: Color.black.opacity(0.4), radius: 10, y: 5)
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, y: 5)
                         .padding(.horizontal, 16)
                         // Make sure it sits just above the TabBar. Since TabBar is about 50-80pt,
                         // we can pad it a bit.

@@ -18,7 +18,7 @@ public struct PRCelebrationView: View {
     public var body: some View {
         ZStack {
             // Dark Blur Background
-            Color.black.opacity(0.85)
+            Color(.systemBackground).opacity(0.85)
                 .ignoresSafeArea()
             
             VStack(spacing: 24) {
@@ -48,7 +48,7 @@ public struct PRCelebrationView: View {
                     
                     Text("New Peak Unlocked")
                         .font(.system(size: 28, weight: .black, design: .rounded))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 
                 // PRs ScrollView
@@ -58,7 +58,7 @@ public struct PRCelebrationView: View {
                             VStack(spacing: 16) {
                                 Text(pr.exerciseName)
                                     .font(.system(size: 20, weight: .bold))
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.primary)
                                 
                                 VStack(spacing: 4) {
                                     if pr.typeString == "weight" {
@@ -81,7 +81,7 @@ public struct PRCelebrationView: View {
                                             .foregroundColor(.yellow)
                                         Text("at \(Int(pr.weight)) \(UserSettingsManager.shared.weightUnit.rawValue)")
                                             .font(.system(size: 12))
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.primary)
                                     } else if pr.typeString == "dailyVolume" || pr.typeString == "exerciseVolume" {
                                         Text("\(Int(pr.value)) \(UserSettingsManager.shared.weightUnit.rawValue)")
                                             .font(.system(size: 36, weight: .black))
@@ -93,7 +93,7 @@ public struct PRCelebrationView: View {
                                 }
                                 .padding()
                                 .frame(width: 220)
-                                .background(Color(white: 0.1))
+                                .background(Color(.secondarySystemBackground))
                                 .cornerRadius(16)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 16)
@@ -108,7 +108,7 @@ public struct PRCelebrationView: View {
                                         Text("Share PR Card")
                                     }
                                     .font(.system(size: 13, weight: .bold))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color(.systemBackground))
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 8)
                                     .background(Color.yellow)
@@ -116,7 +116,7 @@ public struct PRCelebrationView: View {
                                 }
                             }
                             .padding()
-                            .background(Color(white: 0.05))
+                            .background(Color(.tertiarySystemBackground))
                             .cornerRadius(20)
                         }
                     }

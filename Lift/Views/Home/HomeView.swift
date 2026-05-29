@@ -18,7 +18,7 @@ public struct HomeView: View {
     public var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 24) {
@@ -53,7 +53,7 @@ public struct HomeView: View {
                         Text("LIFT")
                             .font(.system(size: 18, weight: .black, design: .rounded))
                             .tracking(3)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                     }
                 }
             }
@@ -72,7 +72,7 @@ public struct HomeView: View {
             
             Text(Date().formatted(date: .complete, time: .omitted))
                 .font(.system(size: 26, weight: .black, design: .rounded))
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
         }
         .padding(.top, 16)
     }
@@ -98,7 +98,7 @@ public struct HomeView: View {
                     
                     Text("Start Empty Workout")
                         .font(.system(size: 20, weight: .black, design: .rounded))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                     
                     Text("Log exercises, sets, and reps dynamically.")
                         .font(.system(size: 12, weight: .medium))
@@ -112,7 +112,7 @@ public struct HomeView: View {
                     .foregroundColor(.green)
             }
             .padding(20)
-            .background(Color(white: 0.08))
+            .background(Color(.secondarySystemBackground))
             .cornerRadius(20)
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
@@ -157,12 +157,12 @@ public struct HomeView: View {
                             .foregroundColor(.gray)
                         
                         Circle()
-                            .fill(workedOut ? Color.green : Color(white: 0.12))
+                            .fill(workedOut ? Color.green : Color(.tertiarySystemBackground))
                             .frame(width: 32, height: 32)
                             .overlay(
                                 Image(systemName: workedOut ? "checkmark" : "")
                                     .font(.system(size: 10, weight: .bold))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color(.systemBackground))
                             )
                     }
                     .frame(maxWidth: .infinity)
@@ -178,7 +178,7 @@ public struct HomeView: View {
                         .foregroundColor(.gray)
                     Text("\(Int(weeklyVolume)) \(UserSettingsManager.shared.weightUnit.rawValue)")
                         .font(.system(size: 16, weight: .black, design: .monospaced))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -188,7 +188,7 @@ public struct HomeView: View {
                         .foregroundColor(.gray)
                     Text("\(weeklySessionsCount) times")
                         .font(.system(size: 16, weight: .black))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -198,12 +198,12 @@ public struct HomeView: View {
                         .foregroundColor(.gray)
                     Text("\(weeklySetsCount) Sets")
                         .font(.system(size: 16, weight: .black))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(16)
-            .background(Color(white: 0.05))
+            .background(Color(.secondarySystemBackground))
             .cornerRadius(16)
         }
     }
@@ -230,7 +230,7 @@ public struct HomeView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(latestPR.exerciseName)
                                 .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                             
                             if latestPR.typeString == "weight" {
                                 Text("\(Int(latestPR.weight)) \(UserSettingsManager.shared.weightUnit.rawValue)")
@@ -255,7 +255,7 @@ public struct HomeView: View {
                     }
                 }
                 .padding(16)
-                .background(Color(white: 0.08))
+                .background(Color(.secondarySystemBackground))
                 .cornerRadius(16)
             }
         }
@@ -274,7 +274,7 @@ public struct HomeView: View {
                     HStack(alignment: .firstTextBaseline, spacing: 6) {
                         Text(String(format: "%.1f", latestWeight.weight))
                             .font(.system(size: 28, weight: .black, design: .rounded))
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                         Text(UserSettingsManager.shared.bodyweightUnit.rawValue)
                             .font(.system(size: 14, weight: .bold))
                             .foregroundColor(.gray)
@@ -297,7 +297,7 @@ public struct HomeView: View {
                     Text("Log")
                 }
                 .font(.system(size: 13, weight: .bold))
-                .foregroundColor(.black)
+                .foregroundColor(Color(.systemBackground))
                 .padding(.horizontal, 14)
                 .padding(.vertical, 8)
                 .background(Color.green)
@@ -305,7 +305,7 @@ public struct HomeView: View {
             }
         }
         .padding(16)
-        .background(Color(white: 0.08))
+        .background(Color(.secondarySystemBackground))
         .cornerRadius(16)
     }
     
@@ -326,7 +326,7 @@ public struct HomeView: View {
                             VStack(alignment: .leading, spacing: 6) {
                                 Text(lastWorkout.name)
                                     .font(.system(size: 16, weight: .bold))
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.primary)
                                 
                                 Text("\(lastWorkout.exercises.count) Exercises • \(lastWorkout.totalSets) Sets")
                                     .font(.system(size: 12))
@@ -340,7 +340,7 @@ public struct HomeView: View {
                                 .foregroundColor(.green)
                         }
                         .padding(16)
-                        .background(Color(white: 0.05))
+                        .background(Color(.secondarySystemBackground))
                         .cornerRadius(16)
                     }
                 }
@@ -352,23 +352,23 @@ public struct HomeView: View {
     private var addWeightSheet: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemBackground).ignoresSafeArea()
                 
                 VStack(spacing: 24) {
                     Text("Log Today's Bodyweight")
                         .font(.system(size: 20, weight: .black))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                         .padding(.top, 20)
                     
                     HStack(spacing: 8) {
                         TextField("0.0", text: $newWeightString)
                             .keyboardType(.decimalPad)
                             .font(.system(size: 40, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                             .frame(width: 150)
                             .padding(.vertical, 8)
-                            .background(Color(white: 0.12))
+                            .background(Color(.secondarySystemBackground))
                             .cornerRadius(16)
                         
                         Text(UserSettingsManager.shared.bodyweightUnit.rawValue)
@@ -379,7 +379,7 @@ public struct HomeView: View {
                     Button(action: saveWeight) {
                         Text("Log Weight")
                             .font(.system(size: 16, weight: .bold))
-                            .foregroundColor(.black)
+                            .foregroundColor(Color(.systemBackground))
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 14)
                             .background(Color.green)
@@ -394,12 +394,12 @@ public struct HomeView: View {
                                 Image(systemName: "heart.text.square.fill")
                                     .foregroundColor(.red)
                                 Text("Sync from Apple Health")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.primary)
                             }
                             .font(.system(size: 14, weight: .semibold))
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Color(white: 0.08))
+                            .background(Color(.secondarySystemBackground))
                             .cornerRadius(14)
                         }
                         .padding(.top, 10)

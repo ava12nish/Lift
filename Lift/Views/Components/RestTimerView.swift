@@ -63,7 +63,7 @@ public struct RestTimerView: View {
                 // Progress circle
                 ZStack {
                     Circle()
-                        .stroke(Color.white.opacity(0.1), lineWidth: 4)
+                        .stroke(Color.primary.opacity(0.1), lineWidth: 4)
                     Circle()
                         .trim(from: 0.0, to: CGFloat(timerManager.timeRemaining) / CGFloat(timerManager.totalDuration))
                         .stroke(Color.green, style: StrokeStyle(lineWidth: 4, lineCap: .round))
@@ -72,7 +72,7 @@ public struct RestTimerView: View {
                     
                     Text("\(timerManager.timeRemaining)")
                         .font(.system(size: 14, weight: .bold, design: .monospaced))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
                 .frame(width: 40, height: 40)
                 
@@ -95,10 +95,10 @@ public struct RestTimerView: View {
                     }) {
                         Text("+15s")
                             .font(.system(size: 11, weight: .bold))
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .padding(.horizontal, 10)
                             .padding(.vertical, 6)
-                            .background(Color.white.opacity(0.1))
+                            .background(Color.primary.opacity(0.1))
                             .cornerRadius(12)
                     }
                     
@@ -117,13 +117,13 @@ public struct RestTimerView: View {
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 12)
-            .background(Color(white: 0.08))
+            .background(Color(.secondarySystemBackground))
             .cornerRadius(16)
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                    .stroke(Color.primary.opacity(0.1), lineWidth: 1)
             )
-            .shadow(color: Color.black.opacity(0.5), radius: 10, x: 0, y: 5)
+            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
             .padding(.horizontal, 16)
             .transition(.move(edge: .bottom).combined(with: .opacity))
         }

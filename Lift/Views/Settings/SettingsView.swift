@@ -23,7 +23,7 @@ public struct SettingsView: View {
     public var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(.systemGroupedBackground).ignoresSafeArea()
                 
                 Form {
                     Section("Workout Preferences") {
@@ -46,23 +46,29 @@ public struct SettingsView: View {
                             Text("180 Sec").tag(180)
                         }
                     }
-                    .listRowBackground(Color(white: 0.1))
+                    .listRowBackground(Color(.secondarySystemGroupedBackground))
                     
                     Section("Haptics & Sound") {
                         Toggle("Haptics Enabled", isOn: Bindable(settings).hapticsEnabled)
                         Toggle("Sounds Enabled", isOn: Bindable(settings).soundsEnabled)
                     }
-                    .listRowBackground(Color(white: 0.1))
+                    .listRowBackground(Color(.secondarySystemGroupedBackground))
                     .tint(.green)
                     
                     Section("Social & Aesthetics") {
+                        Picker("App Theme", selection: Bindable(settings).appThemeMode) {
+                            ForEach(AppThemeMode.allCases) { mode in
+                                Text(mode.rawValue).tag(mode)
+                            }
+                        }
+                        
                         Picker("Default Share Style", selection: Bindable(settings).defaultShareCardStyle) {
                             ForEach(ShareCardStyle.allCases) { style in
                                 Text(style.rawValue).tag(style)
                             }
                         }
                     }
-                    .listRowBackground(Color(white: 0.1))
+                    .listRowBackground(Color(.secondarySystemGroupedBackground))
                     
                     Section("Apple Health") {
                         Button(action: requestHealthKitAccess) {
@@ -70,11 +76,11 @@ public struct SettingsView: View {
                                 Image(systemName: "heart.fill")
                                     .foregroundColor(.red)
                                 Text("Sync Health Data")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.primary)
                             }
                         }
                     }
-                    .listRowBackground(Color(white: 0.1))
+                    .listRowBackground(Color(.secondarySystemGroupedBackground))
                     
                     Section("Data Management") {
                         Button(action: exportAllData) {
@@ -90,17 +96,17 @@ public struct SettingsView: View {
                                 .foregroundColor(.red)
                         }
                     }
-                    .listRowBackground(Color(white: 0.1))
+                    .listRowBackground(Color(.secondarySystemGroupedBackground))
                 }
                 .scrollContentBackground(.hidden)
-                .background(Color.black)
+                .background(Color(.systemGroupedBackground))
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Settings")
                         .font(.system(size: 18, weight: .black, design: .rounded))
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                 }
             }
             .alert("Reset All Data?", isPresented: $showingResetAlert) {
