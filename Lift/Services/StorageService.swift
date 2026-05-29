@@ -7,83 +7,51 @@ import SwiftUI
 public class UserSettingsManager {
     public static let shared = UserSettingsManager()
     
-    private init() {}
-    
     public var weightUnit: WeightUnit {
-        get {
-            let val = UserDefaults.standard.string(forKey: "weightUnit") ?? "lb"
-            return WeightUnit(rawValue: val) ?? .lb
-        }
-        set {
-            UserDefaults.standard.set(newValue.rawValue, forKey: "weightUnit")
+        didSet {
+            UserDefaults.standard.set(weightUnit.rawValue, forKey: "weightUnit")
         }
     }
     
     public var bodyweightUnit: WeightUnit {
-        get {
-            let val = UserDefaults.standard.string(forKey: "bodyweightUnit") ?? "lb"
-            return WeightUnit(rawValue: val) ?? .lb
-        }
-        set {
-            UserDefaults.standard.set(newValue.rawValue, forKey: "bodyweightUnit")
+        didSet {
+            UserDefaults.standard.set(bodyweightUnit.rawValue, forKey: "bodyweightUnit")
         }
     }
     
     public var defaultRestSeconds: Int {
-        get {
-            UserDefaults.standard.object(forKey: "defaultRestSeconds") as? Int ?? 90
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "defaultRestSeconds")
+        didSet {
+            UserDefaults.standard.set(defaultRestSeconds, forKey: "defaultRestSeconds")
         }
     }
     
     public var hapticsEnabled: Bool {
-        get {
-            if UserDefaults.standard.object(forKey: "hapticsEnabled") == nil { return true }
-            return UserDefaults.standard.bool(forKey: "hapticsEnabled")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "hapticsEnabled")
+        didSet {
+            UserDefaults.standard.set(hapticsEnabled, forKey: "hapticsEnabled")
         }
     }
     
     public var soundsEnabled: Bool {
-        get {
-            if UserDefaults.standard.object(forKey: "soundsEnabled") == nil { return true }
-            return UserDefaults.standard.bool(forKey: "soundsEnabled")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "soundsEnabled")
+        didSet {
+            UserDefaults.standard.set(soundsEnabled, forKey: "soundsEnabled")
         }
     }
     
     public var selectedTheme: String {
-        get {
-            UserDefaults.standard.string(forKey: "selectedTheme") ?? "Neon Lift"
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "selectedTheme")
+        didSet {
+            UserDefaults.standard.set(selectedTheme, forKey: "selectedTheme")
         }
     }
     
     public var defaultShareCardStyle: ShareCardStyle {
-        get {
-            let val = UserDefaults.standard.string(forKey: "defaultShareCardStyle") ?? "Neon Lift"
-            return ShareCardStyle(rawValue: val) ?? .neonLift
-        }
-        set {
-            UserDefaults.standard.set(newValue.rawValue, forKey: "defaultShareCardStyle")
+        didSet {
+            UserDefaults.standard.set(defaultShareCardStyle.rawValue, forKey: "defaultShareCardStyle")
         }
     }
     
     public var appThemeMode: AppThemeMode {
-        get {
-            let val = UserDefaults.standard.string(forKey: "appThemeMode") ?? "system"
-            return AppThemeMode(rawValue: val) ?? .system
-        }
-        set {
-            UserDefaults.standard.set(newValue.rawValue, forKey: "appThemeMode")
+        didSet {
+            UserDefaults.standard.set(appThemeMode.rawValue, forKey: "appThemeMode")
         }
     }
     
@@ -93,6 +61,36 @@ public class UserSettingsManager {
         case .light: return .light
         case .dark: return .dark
         }
+    }
+    
+    private init() {
+        let weightUnitVal = UserDefaults.standard.string(forKey: "weightUnit") ?? "lb"
+        self.weightUnit = WeightUnit(rawValue: weightUnitVal) ?? .lb
+        
+        let bodyweightUnitVal = UserDefaults.standard.string(forKey: "bodyweightUnit") ?? "lb"
+        self.bodyweightUnit = WeightUnit(rawValue: bodyweightUnitVal) ?? .lb
+        
+        self.defaultRestSeconds = UserDefaults.standard.object(forKey: "defaultRestSeconds") as? Int ?? 90
+        
+        if UserDefaults.standard.object(forKey: "hapticsEnabled") == nil {
+            self.hapticsEnabled = true
+        } else {
+            self.hapticsEnabled = UserDefaults.standard.bool(forKey: "hapticsEnabled")
+        }
+        
+        if UserDefaults.standard.object(forKey: "soundsEnabled") == nil {
+            self.soundsEnabled = true
+        } else {
+            self.soundsEnabled = UserDefaults.standard.bool(forKey: "soundsEnabled")
+        }
+        
+        self.selectedTheme = UserDefaults.standard.string(forKey: "selectedTheme") ?? "Neon Lift"
+        
+        let shareStyleVal = UserDefaults.standard.string(forKey: "defaultShareCardStyle") ?? "Neon Lift"
+        self.defaultShareCardStyle = ShareCardStyle(rawValue: shareStyleVal) ?? .neonLift
+        
+        let appThemeVal = UserDefaults.standard.string(forKey: "appThemeMode") ?? "system"
+        self.appThemeMode = AppThemeMode(rawValue: appThemeVal) ?? .system
     }
 }
 

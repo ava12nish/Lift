@@ -12,6 +12,8 @@ public struct WorkoutDetailView: View {
     
     @State private var isEditing = false
     @State private var showingShareSheet = false
+    @State private var editName = ""
+    @State private var editNotes = ""
     
     public init(workout: Workout) {
         self.workout = workout
@@ -46,6 +48,8 @@ public struct WorkoutDetailView: View {
                 HStack(spacing: 16) {
                     if isEditing {
                         Button("Done") {
+                            workout.name = editName
+                            workout.notes = editNotes
                             isEditing = false
                             try? modelContext.save()
                             HapticsService.shared.triggerNotification(type: .success)
@@ -62,6 +66,8 @@ public struct WorkoutDetailView: View {
                         }
                         
                         Button("Edit") {
+                            editName = workout.name
+                            editNotes = workout.notes
                             isEditing = true
                             HapticsService.shared.triggerImpact(style: .light)
                         }
@@ -85,7 +91,7 @@ public struct WorkoutDetailView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 if isEditing {
-                    TextField("Workout Name", text: $workout.name)
+                    TextField("Workout Name", text: $editName)
                         .font(.system(size: 24, weight: .black, design: .rounded))
                         .foregroundColor(.primary)
                         .tint(.green)
@@ -149,7 +155,7 @@ public struct WorkoutDetailView: View {
     private var notesSection: some View {
         Group {
             if isEditing {
-                TextField("Edit workout notes...", text: $workout.notes)
+                TextField("Edit workout notes...", text: $editNotes)
                     .font(.system(size: 13))
                     .padding()
                     .foregroundColor(.primary)

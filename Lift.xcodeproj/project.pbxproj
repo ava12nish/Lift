@@ -44,7 +44,7 @@
 		152DC327942169255D3B09A4 /* PRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRService.swift; sourceTree = "<group>"; };
 		15A8DECC1D9010AF5F621BD9 /* ActiveWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveWorkoutView.swift; sourceTree = "<group>"; };
 		1DDD20756389AE4AD39C5FDF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		22AD59C08B881C82D9B07B88 /* Lift.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Lift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22AD59C08B881C82D9B07B88 /* Lift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23959EFA52D230688F7B8504 /* ShareCardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCardViews.swift; sourceTree = "<group>"; };
 		2CD52E59D74DD297B79AD262 /* ImageRendererUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRendererUtility.swift; sourceTree = "<group>"; };
 		2E300314E07824EBA1AB1AF7 /* HapticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsService.swift; sourceTree = "<group>"; };
@@ -272,11 +272,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-					8CF39992B376D5973D0DAE76 = {
-						DevelopmentTeam = "";
-					};
-				};
 			};
 			buildConfigurationList = A16F62BB9110C0483E63F3A2 /* Build configuration list for PBXProject "Lift" */;
 			developmentRegion = en;
@@ -417,7 +412,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lift/Resources/Lift.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KW3G9DYD62;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Lift/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -495,7 +490,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lift/Resources/Lift.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KW3G9DYD62;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Lift/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
