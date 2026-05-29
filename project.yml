@@ -1,0 +1,19 @@
+name: Lift
+options:
+  bundleIdPrefix: com.avanish
+targets:
+  Lift:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources: [Lift]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.avanish.Lift
+      INFOPLIST_FILE: Lift/Resources/Info.plist
+      MARKETING_VERSION: 1.0.0
+      CURRENT_PROJECT_VERSION: 1
+      DEVELOPMENT_TEAM: ""
+      IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+      SWIFT_VERSION: "6.0"
+      GENERATE_INFOPLIST_FILE: false
+      CODE_SIGN_ENTITLEMENTS: Lift/Resources/Lift.entitlements
