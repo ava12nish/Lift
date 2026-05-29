@@ -1,5 +1,9 @@
 # Lift — iOS Gym Tracker
 
+<p align="center">
+  <img src="Logo.png" width="200" height="200" alt="Lift Logo">
+</p>
+
 Lift is a high-fidelity, App Store-quality fitness progress tracker designed for logging workouts, tracking sets, reps, weights, bodyweight, personal records (PRs), and visualizing gym progress over time. Built natively with **SwiftUI**, **SwiftData**, and **Swift Charts**, it offers a clean, fluid dark-mode user experience with haptics, system audio cues, and Apple Health integration.
 
 ---
